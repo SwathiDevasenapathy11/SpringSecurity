@@ -52,21 +52,4 @@ public class UserController {
 			throw new UsernameNotFoundException("User not found");
 		}
 	}
-	
-//	@PostMapping("/login")
-//	public String authentication(@RequestBody AuthRequest authRequest) {
-//	    try {
-//	        Authentication authentication = authenticationManager.authenticate(
-//	            new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
-//	        if(authentication.isAuthenticated()) {
-//	            return jwtService.generateToken(authRequest.getUsername());
-//	        } else {
-//	            throw new UsernameNotFoundException("User not found");
-//	        }
-//	    } catch (Exception e) {
-//	        e.printStackTrace();
-//	        throw new UsernameNotFoundException("User not found");
-//	    }
-//	}
-
 }
