@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -49,11 +50,13 @@ public class UserController {
 	}
 	
 	@GetMapping("/get")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public List<User> get(){
 		return userService.get();
 	}
 	
 	@PutMapping("/update")
+	@PreAuthorize("hasAuthority('USER')")
 	public User update(@RequestBody User user) {
 		return userService.update(user);
 	}
